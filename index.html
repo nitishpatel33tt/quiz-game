@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QUIZ REGISTERATION FORM</title>
+
+        
+        <link rel="stylesheet" href="style.css">
+       
+                        
+    </head>
+    <body>
+        <section class="main">
+            <div class="form1">
+                <h1 class="game" title="Please login, to play game ">QUIZ GAME</h1>
+                <input type="radio" class="radio" name="radio" id="login" />
+                <input type="radio" class="radio" name="radio" id="signup" checked />
+                <div class="title">
+                    <h3 class="login">Login Form</h3>
+                    <h3 class="signup">Signup Form</h3>
+                </div>
+    
+                <label class="tab login_tab" for="login">
+                    Login
+                </label>
+    
+                <label class="tab signup_tab" for="signup">
+                    Signup
+                </label>
+                <span class="shape"></span>
+                <div class="form2">
+                    <div class="form_filled login_form">
+                        <div class="input_group">
+                            <input type="email" id="email1" class="input" placeholder="Email Address" />
+                        </div>
+                        <div class="input_group">
+                            <input type="password" id="password1" class="input" placeholder="Password" />
+                        </div>
+    
+                        <input type="submit" id="login1" class="btn" value="Login" />
+    
+                        <div class="not_mem">
+                            <label  for="signup">Not a member? <span> Signup now</span></label>
+                        </div>
+    
+                    </div>
+    
+                    <div class="form_filled signup_form">
+                        <div class="input_group">
+                            <input type="name" class="input" id="username" placeholder="Username">
+                        </div>
+                        <div class="input_group">
+                            <input type="email" class="input" id="email" placeholder="Email Address" />
+                        </div>
+                        <div class="input_group">
+                            <input type="password" class="input" id="password" placeholder="Password" />
+                        </div>
+    
+                       
+    
+                        <input type="submit" id="signup1" class="btn" value="Signup" />
+    
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+    </body>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from  "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+      
+        const firebaseConfig = {
+          apiKey: "AIzaSyD1WzaiJCHCOkOLLmRykZfyX5nGhE9WjZQ",
+          authDomain: "quiz-9ffd6.firebaseapp.com",
+          projectId: "quiz-9ffd6",
+          storageBucket: "quiz-9ffd6.appspot.com",
+          messagingSenderId: "582364147906",
+          appId: "1:582364147906:web:c2b5c67991299f44958b5b"
+  };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+      
+        let signup1 = document.getElementById('signup1')
+        signup1.addEventListener('click',(e) => {
+      
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var username = document.getElementById('username').value;
+      
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+           // Signed up
+            const user = userCredential.user;
+      
+            alert('successfully registered !');
+            
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+      
+            alert(errorMessage);
+          });
+      
+        });
+
+        login1.addEventListener('click',(e)=>{
+
+var email = document.getElementById('email1').value ;
+var password = document.getElementById('password1').value ;
+
+
+signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        alert(' logged in successfully !');
+                location.replace("quiz.html")
+        
+            
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+    })
+});
+      
+     
+      </script>
+      
+      </html>
+
+</html>

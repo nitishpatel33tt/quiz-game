@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    background-image:url(7cPhMl.webp) ;
+    background-size: 100vw 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 340px;
+  }
+  
+  
+  
+  
+  .main {
+    width: 340px;
+    height: 450px;
+     background: #0c1022; 
+     border: solid;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+    display: flex;
+    max-width: 340px;
+    max-height: 450px;
+    border-width: 2px;
+    border-color: #00ccff;
+    border-bottom: solid  #ee00ff 2px;
+    border-right:solid  #ee00ff 2px ;
+     
+  }
+  
+   .form1 {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+    .title {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    overflow: hidden;
+    color: white;
+  }
+    .title h3 {
+    font-size: 18px;
+    margin: 0px;
+    
+  }
+   .form1 .radio {
+    display: none;
+  }
+   .form1 .tab {
+    width: 50%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: white;
+   
+  }
+  
+  .game{
+    top: 0px;
+    margin: 0px;
+    padding: 0;
+    color: brown;
+  }
+  
+   .form1 .shape {
+    background: linear-gradient(45deg, #00ccff, #5d42f8) no-repeat center;
+    width: 50%;
+    height: 39px;
+    border-radius: 5px;
+    position: absolute;
+    top: 95.5px;
+    left: 0px;
+    opacity: 0.9;
+    transition: all 0.4s ;
+  }
+  
+  
+    .form1 #login:checked ~ .login_tab {
+    border-color: transparent;
+    z-index: 1;
+    color: white;
+  } 
+   .form1 #login:checked ~ .title .signup { 
+    display: none;
+  }
+  
+   .form1 #signup:checked ~ .shape {
+    left: 50%;
+  }
+   .form1 #signup:checked ~ .signup_tab {
+    border-color: transparent;
+     z-index: 1; 
+    color: white;
+  
+  } .form1 #signup:checked ~ .title .login {
+    display: none;
+  }
+   #signup:checked ~ .form2 {
+    transform: translateX(-100%);
+  } 
+    #signup:checked ~ .form2 .login_form {
+    opacity: 0;
+  }
+  
+   .form2 {
+    display: flex;
+    width: 100%;
+    flex: 0 0 100%;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+  }
+     .form_filled {
+    width: 100%;
+    flex: 0 0 100%;
+    transition: all 0.5s ease;
+  }
+    .input_group {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+    .input_group .input {
+    border: solid #f1f1f1 2px;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    outline: none;
+    transition: all 0.3s linear;
+  }
+  
+    
+  
+    .input_group .input:focus {
+    border-color: rgba(176, 0, 0, 0.3);
+  }
+  
+    .btn {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    color: white;
+    background: linear-gradient(45deg, #00ccff, #5d42f8) no-repeat center;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s linear;
+  }
+    .btn:hover {
+    background: linear-gradient(45deg,#07adee, #280ad1) no-repeat center;
+    cursor: pointer;
+  }
+     .btn:active {
+    transform: scale(0.95);
+  }
+   .not_mem {
+    text-align: center;
+  
+  } 
+    .not_mem label {
+    pointer-events: none;
+    color: white;
+  }
+  
+    .not_mem label span {
+    pointer-events: all;
+    color:rgb(66, 179, 79);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s linear;
+  }
+  
+     .not_mem label span:hover {
+    color: rgb(0, 255, 89);
+    cursor: pointer;
+  }
