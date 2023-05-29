@@ -15,20 +15,20 @@ let correctAnswer,incorrectAnswer,optionsList , remainingQuestion = 10 , score =
 
 //new question and update on ui 
 async function newques() {
-    let result = await fetch('https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple');
+    let result = await fetch('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple');
     let datas = await result.json();
     let data = datas.results[0];
 
    correctAnswer = data.correct_answer;
    incorrectAnswer = data.incorrect_answers;
    optionsList = incorrectAnswer;
-   optionsList.splice(Math.floor(Math.random() * (incorrectAnswer.length + 1)), 0, correctAnswer);
+   optionsList.splice(Math.floor(Math.random() * 4), 0, correctAnswer);
 
-  ques.innerText = `${i}. ${data.question} `;
-  opt1.innerText =optionsList[0];
-  opt2.innerText =optionsList[1];
-  opt3.innerText =optionsList[2];
-  opt4.innerText =optionsList[3];
+  ques.innerHTML = `${i}. ${data.question} `;
+  opt1.innerHTML =optionsList[0];
+  opt2.innerHTML =optionsList[1];
+  opt3.innerHTML =optionsList[2];
+  opt4.innerHTML =optionsList[3];
    checkans.disabled = false;
    noselected.style.display="none";
   optionselection();
@@ -49,6 +49,7 @@ function optionselection(){
 
 
 
+
 function start(){
     newques();
 }
@@ -62,7 +63,7 @@ checkans.addEventListener("click", ()=>{
     if(options.querySelector('.selected')){
         let selectedsoption = (options.querySelector('.selected span')).textContent
          selectedcss = (options.querySelector('.selected'));
-        if(selectedsoption==correctAnswer){
+        if(selectedsoption==decode(correctAnswer)){
         score++;
         selectedcss.classList.remove("selected");
         selectedcss.classList.add("correctcss");
@@ -88,7 +89,7 @@ checkans.addEventListener("click", ()=>{
        
         else {
          
-            noselected.innerText ="Please Select an option!"
+            noselected.innerHTML ="Please Select an option!"
             noselected.style.display="flex";
             noselected.classList.add("incorrectcss");
             setTimeout(()=>{
@@ -104,8 +105,8 @@ checkans.addEventListener("click", ()=>{
 //restart game
 restart.addEventListener("click",()=>{
     checkans.style.display = "flex ";
-    restart.innerText = "Restart "
-    playerscore.innerText ="";
+    restart.innerHTML = "Restart "
+    playerscore.innerHTML ="";
     newques();
     score = 0 ;
     i = 1;
@@ -116,9 +117,9 @@ function check(){
    
     if(remainingQuestion == i){
 
-        playerscore.innerText = `Your score : ${score}`
+        playerscore.innerHTML = `Your score : ${score}`
         checkans.style.display = "none";
-        restart.innerText = "start a new game "
+        restart.innerHTML = "start a new game "
         playerscore.classList.add("correctcss");
 
 
@@ -131,6 +132,14 @@ function check(){
 }
 
 
+function decode(todecode){
+
+// Create a new DOMParser object
+var parser = new DOMParser();
+
+// Parse the HTML entity string
+return decodedText = parser.parseFromString(todecode, 'text/html').body.textContent;
+}
 
 
 
