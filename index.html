@@ -99,7 +99,7 @@
             const user = userCredential.user;
       
             alert('successfully registered !');
-            
+             window.location.href = "quiz.html";
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -121,7 +121,7 @@ signInWithEmailAndPassword(auth, email, password)
         // Signed in
         const user = userCredential.user;
         alert(' logged in successfully !');
-                location.replace("quiz.html")
+              window.location.href = "quiz.html";
         
             
     })
